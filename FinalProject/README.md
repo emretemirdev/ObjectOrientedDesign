@@ -1,4 +1,4 @@
-Tabii ki, aşağıda projenizin README.md dosyası için bir şablon bulunmaktadır. Bu şablon, projenizin genel bir özetini ve nasıl çalıştırılacağını içerir. İhtiyaçlarınıza göre bu şablonu özelleştirebilirsiniz.
+
 
 ```markdown
 # FinalProject
