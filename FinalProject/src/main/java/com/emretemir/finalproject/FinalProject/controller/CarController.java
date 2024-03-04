@@ -1,5 +1,7 @@
 package com.emretemir.finalproject.FinalProject.controller;
 
+import com.emretemir.finalproject.FinalProject.exception.CarsAlreadyException;
+import com.emretemir.finalproject.FinalProject.exception.CarsNotFoundException;
 import com.emretemir.finalproject.FinalProject.model.Car;
 import com.emretemir.finalproject.FinalProject.service.CarService;
 import lombok.AllArgsConstructor;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
-import static org.springframework.http.HttpStatus.OK;
+import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @RequestMapping("/cars")
@@ -19,9 +21,11 @@ public class CarController {
 
     private final CarService carService;
     @GetMapping
-    public ResponseEntity<List<Car>> getCars(){
-        return new ResponseEntity<>(carService.getCars(), OK);
+    //Search Query Parametreleri ile filtreleme yapmak için @RequestParam anotasyonunu kullanıyorm
+    public ResponseEntity<List<Car>> getCars(@RequestParam(required = false) String name){
+        return new ResponseEntity<>(carService.getCars(name), OK);
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<Car> getCarbyId(@PathVariable String id){
         //Java 8'den sonra gelen Stream API ile aşağıdaki kodu tek satırda yazıyoruz.
@@ -40,6 +44,8 @@ public class CarController {
         Car car = getCarById(id);
         car.setName(updatedCar.getName());
         car.setModel(updatedCar.getModel());
+
+        carService.updateCar(id,car);
         return new ResponseEntity<>(OK);
     }
     @DeleteMapping("/{id}")
@@ -51,5 +57,16 @@ public class CarController {
     //getCarById metodunu 3 kez kullandım. Kod tekrarı olmaması için bu metodu oluşturdum
     private Car getCarById(String id) {
         return carService.getCarById(id);
+    }
+
+
+    @ExceptionHandler(CarsAlreadyException.class)
+    public ResponseEntity<String> handleCarsAlreadyException(Exception e){
+        return new ResponseEntity<>(e.getMessage(), BAD_REQUEST);
+    }
+
+    @ExceptionHandler(CarsNotFoundException.class)
+    public ResponseEntity<String> handleCarsNotFoundException(Exception e){
+        return new ResponseEntity<>(e.getMessage(),NOT_FOUND);
     }
 }
