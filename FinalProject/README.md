@@ -1,6 +1,3 @@
-
-
-```markdown
 # FinalProject
 
 Bu proje, Spring Boot ve Maven kullanılarak oluşturulmuştur.
