@@ -1,7 +1,6 @@
-package com.emretemir.finalproject.FinalProject.repository;
+package com.emretemir.finalproject.RestAPI.repository;
 
-import com.emretemir.finalproject.FinalProject.model.Car;
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.emretemir.finalproject.RestAPI.model.Car;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

@@ -1,15 +1,14 @@
-package com.emretemir.finalproject.FinalProject.controller;
+package com.emretemir.finalproject.RestAPI.controller;
 
-import com.emretemir.finalproject.FinalProject.exception.CarsAlreadyException;
-import com.emretemir.finalproject.FinalProject.exception.CarsNotFoundException;
-import com.emretemir.finalproject.FinalProject.model.Car;
-import com.emretemir.finalproject.FinalProject.service.CarService;
+import com.emretemir.finalproject.RestAPI.exception.CarsAlreadyException;
+import com.emretemir.finalproject.RestAPI.exception.CarsNotFoundException;
+import com.emretemir.finalproject.RestAPI.model.Car;
+import com.emretemir.finalproject.RestAPI.service.CarService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.*;

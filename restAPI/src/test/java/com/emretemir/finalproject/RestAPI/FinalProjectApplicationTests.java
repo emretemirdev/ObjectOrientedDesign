@@ -1,4 +1,4 @@
-package com.emretemir.finalproject.FinalProject;
+package com.emretemir.finalproject.RestAPI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

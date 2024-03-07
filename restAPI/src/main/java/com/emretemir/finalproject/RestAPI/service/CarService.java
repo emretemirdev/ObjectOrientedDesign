@@ -1,13 +1,12 @@
-package com.emretemir.finalproject.FinalProject.service;
+package com.emretemir.finalproject.RestAPI.service;
 
-import com.emretemir.finalproject.FinalProject.exception.CarsAlreadyException;
-import com.emretemir.finalproject.FinalProject.exception.CarsNotFoundException;
-import com.emretemir.finalproject.FinalProject.model.Car;
-import com.emretemir.finalproject.FinalProject.repository.CarRepository;
+import com.emretemir.finalproject.RestAPI.exception.CarsAlreadyException;
+import com.emretemir.finalproject.RestAPI.exception.CarsNotFoundException;
+import com.emretemir.finalproject.RestAPI.model.Car;
+import com.emretemir.finalproject.RestAPI.repository.CarRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 

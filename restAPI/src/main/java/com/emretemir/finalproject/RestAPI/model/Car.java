@@ -1,4 +1,4 @@
-package com.emretemir.finalproject.FinalProject.model;
+package com.emretemir.finalproject.RestAPI.model;
 
 
 import jakarta.persistence.Id;
